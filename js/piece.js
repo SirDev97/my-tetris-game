@@ -20,6 +20,34 @@ class Piece {
     }
 
     updatePiecePosition() {
-        this.newShape.forEach((x, i) => x.forEach((e, j) => { if (e) { e.x = this.x + j * SQAURE_SIZE; e.y = this.y + i * SQAURE_SIZE; } }))
+        this.newShape.forEach((x, i) => x.forEach((e, j) => {
+            if (e) {
+                e.x = this.x + j * SQAURE_SIZE;
+                e.y = this.y + i * SQAURE_SIZE;
+            }
+        }));
+    }
+
+    rotateShapeArray() {
+        this.newShape.reverse()[0].map((column, index) => {
+            this.newShape.map(row => row[index]);
+        });
+    }
+
+    transposeShapeArray() {
+        let dimension = this.newShape.length
+        let transposed = Array.from(new Array(dimension), e => Array.from(new Array(dimension), x => null));
+        this.newShape.forEach((x, i) => x.forEach((e, j) => transposed[j][i] = e));
+        this.newShape = transposed;
+    }
+
+    rotatePiece() {
+        this.rotateShapeArray();
+        this.transposeShapeArray();
+        this.updatePiecePosition();
+    }
+
+    pieceCollision(collision) {
+        return this.newShape.reduce((acc, val) => acc.concat(val.filter(col => col != null).filter(square => collision(square))), []).length > 0;
     }
 }
