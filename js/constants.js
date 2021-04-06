@@ -1,7 +1,9 @@
 const CANVAS_WIDTH = 200;
 const CANVAS_HEIGHT = 400;
 const SQAURE_SIZE = 20;
-const EMPTY_SQURE = '#333';
+const BACKGROUND_COLOR = 50;
+const TIMER = 500;
+const EMPTY_SQURE = 'WHITE';
 const ROW = 20;
 const COL = 10;
 
@@ -154,4 +156,14 @@ const Z = [
         [1, 1, 0],
         [1, 0, 0]
     ]
+];
+
+const PIECES = [
+    [Z, 'red'],
+    [S, 'green'],
+    [T, 'yellow'],
+    [O, 'blue'],
+    [L, 'purple'],
+    [I, 'cyan'],
+    [J, 'orange']
 ];
