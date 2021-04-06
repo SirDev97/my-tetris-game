@@ -1,4 +1,4 @@
-class Square {
+class Board {
     constructor(x, y, width, height, color) {
         this.x = x;
         this.y = y;
@@ -14,9 +14,9 @@ class Square {
     }
 
     drawBoard() {
-        for (let x = 0; x < CANVAS_WIDTH; x += SQAURE_SIZE) {
-            for (let y = 0; y < CANVAS_HEIGHT; y += SQAURE_SIZE) {
-                // stroke(5);
+        for (let x = 0; x <= CANVAS_WIDTH; x += SQAURE_SIZE) {
+            for (let y = 0; y <= CANVAS_HEIGHT; y += SQAURE_SIZE) {
+                stroke(0);
                 strokeWeight(2);
                 line(x, 0, x, CANVAS_HEIGHT);
                 line(0, y, CANVAS_WIDTH, y);

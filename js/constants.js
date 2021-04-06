@@ -1,7 +1,7 @@
 const CANVAS_WIDTH = 200;
 const CANVAS_HEIGHT = 400;
 const SQAURE_SIZE = 20;
-const EMPTY_SQURE = 'WHITE';
+const EMPTY_SQURE = '#333';
 const ROW = 20;
 const COL = 10;
 
