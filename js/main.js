@@ -1,22 +1,35 @@
-let square;
 let piece;
+let board;
 
 function setup() {
     let canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
     canvas.parent('canvas');
     // square = new Square(CANVAS_WIDTH / 2.2, 0, SQAURE_SIZE, SQAURE_SIZE, 'red');
-    piece = new Piece(J[0], CANVAS_WIDTH / 2.5, 0, 'yellow');
+    // piece = new Piece(J, CANVAS_WIDTH / 2.5, 0, 'yellow');
+    board = new Board();
+    generateNewPiece();
     setInterval(() => applyGravity(), TIMER);
 }
 
 function draw() {
     background(BACKGROUND_COLOR);
-    // square.draw();
+    board.draw();
     piece.draw();
 }
 
 function applyGravity() {
-    piece.y += SQAURE_SIZE;
+    if (!piece.pieceCollision(square => square.y === CANVAS_HEIGHT - SQAURE_SIZE)) {
+        piece.y += SQAURE_SIZE;
+    } else {
+        board.lockPiece(piece);
+        generateNewPiece();
+    }
+}
+
+function generateNewPiece() {
+    let index = Math.floor((Math.random() * PIECES.length));
+    let indexColor = Math.floor((Math.random() * COLORS.length));
+    piece = new Piece(PIECES[index], CANVAS_WIDTH / 2.5, 0, COLORS[indexColor]);
 }
 
 function keyPressed() {
@@ -33,4 +46,3 @@ function keyPressed() {
         applyGravity();
     }
 }
-
