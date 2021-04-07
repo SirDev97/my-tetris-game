@@ -18,7 +18,7 @@ function draw() {
 }
 
 function applyGravity() {
-    if (!piece.pieceCollision(square => square.y === CANVAS_HEIGHT - SQAURE_SIZE)) {
+    if (!piece.boardCollision(square => square.y === CANVAS_HEIGHT - SQAURE_SIZE) && !board.pieceCollision(piece)) {
         piece.y += SQAURE_SIZE;
     } else {
         board.lockPiece(piece);
@@ -36,10 +36,10 @@ function keyPressed() {
     if (keyCode === UP_ARROW) {
         piece.rotatePiece();
     }
-    if (keyCode === LEFT_ARROW && !piece.pieceCollision(square => square.x === 0)) {
+    if (keyCode === LEFT_ARROW && !piece.boardCollision(square => square.x === 0)) {
         piece.x -= SQAURE_SIZE
     }
-    if (keyCode === RIGHT_ARROW && !piece.pieceCollision(square => square.x + SQAURE_SIZE === CANVAS_WIDTH)) {
+    if (keyCode === RIGHT_ARROW && !piece.boardCollision(square => square.x + SQAURE_SIZE === CANVAS_WIDTH)) {
         piece.x += SQAURE_SIZE
     }
     if (keyCode === DOWN_ARROW) {

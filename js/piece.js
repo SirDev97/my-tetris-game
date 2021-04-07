@@ -47,7 +47,7 @@ class Piece {
         this.updatePiecePosition();
     }
 
-    pieceCollision(collision) {
+    boardCollision(collision) {
         return this.newShape.reduce((acc, val) => acc.concat(val.filter(col => col != null).filter(square => collision(square))), []).length > 0;
     }
 }

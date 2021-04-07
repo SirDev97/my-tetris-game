@@ -51,3 +51,4 @@ const Z = [
 
 const PIECES = [Z, S, T, O, L, I, J];
 const COLORS = ['red', 'green', 'yellow', 'blue', 'purple', 'cyan', 'orange'];
+const COLLISION_MARGIN = 2;

@@ -20,6 +20,13 @@ class Board {
     }
 
     lockPiece(piece) {
-        piece.newShape.reduce((z, x) => z.concat(x.filter(col => col != 0)), []).forEach(square => this.board[square.y / SQAURE_SIZE][square.x / SQAURE_SIZE] = square)
+        piece.newShape.reduce((acc, val) => acc.concat(val.filter(col => col != 0)), []).forEach(square => this.board[square.y / SQAURE_SIZE][square.x / SQAURE_SIZE] = square);
+    }
+
+    pieceCollision(piece, collision = (rect1, rect2) => rectCollision(rect1, rect2)) {
+        let squares = piece.newShape.reduce((z, x) => z.concat(x.filter(col => col != 0)), []);
+        let piecesInBoard = this.board.reduce((z, x) => z.concat(x.filter(col => col != 0)), []);
+
+        return squares.reduce((acc, square) => piecesInBoard.filter(piece => collision(square, piece)).length > 0 ? true : acc, false);
     }
 }
