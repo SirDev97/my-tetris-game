@@ -11,7 +11,7 @@ class Piece {
         return Array.from(new Array(piece), (x, i) =>
             Array.from(new Array(piece), (y, j) =>
                 this.shape[i][j] === 1 ? new Square(this.x + j * SQAURE_SIZE, this.y + i * SQAURE_SIZE, SQAURE_SIZE, SQAURE_SIZE, this.color) : 0)
-        )
+        );
     }
 
     draw() {
@@ -35,7 +35,7 @@ class Piece {
     }
 
     transposeShapeArray() {
-        let dimension = this.newShape.length
+        let dimension = this.newShape.length;
         let transposed = Array.from(new Array(dimension), e => Array.from(new Array(dimension), x => null));
         this.newShape.forEach((x, i) => x.forEach((e, j) => transposed[j][i] = e));
         this.newShape = transposed;

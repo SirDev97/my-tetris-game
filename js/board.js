@@ -7,7 +7,13 @@ class Board {
 
     generateBoard() {
         let boardSize = CANVAS_HEIGHT / SQAURE_SIZE;
-        this.board = Array.from(new Array(boardSize), row => Array.from(new Array(boardSize), col => 0))
+        this.board = Array.from(new Array(boardSize), row => Array.from(new Array(boardSize), col => 0));
+        // for (let x = 0; x < this.board.length; x++) {
+        //     this.board[x] = [];
+        //     for (let y = 0; y < this.board[x].length; y++) {
+        //         this.board[x][y] = 0;
+        //     }
+        // }
     }
 
     drawEmptySquare(x, y) {
@@ -33,8 +39,9 @@ class Board {
 
     cleanFilledRows() {
         // let preBoxesCount = this.countBoxes()
-        this.board.forEach((row, i) => { if (row.every(box => box != 0)) { row.forEach((element, j) => this.board[i][j] = 0) } })
-            // let postBoxesCount = this.countBoxes()
-            // preBoxesCount != postBoxesCount ? points += preBoxesCount - postBoxesCount : points = points
+        this.board.forEach((row, i) => { if (row.every(box => box != 0)) { row.forEach((element, j) => this.board[i][j] = 0); } });
+        console.log(this.board);
+        // let postBoxesCount = this.countBoxes()
+        // preBoxesCount != postBoxesCount ? points += preBoxesCount - postBoxesCount : points = points
     }
 }
