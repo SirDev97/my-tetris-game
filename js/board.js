@@ -1,7 +1,8 @@
 class Board {
     constructor() {
-        this.board = [[]];
+        this.board = [];
         this.generateBoard();
+        this.score = 0;
     }
 
     generateBoard() {
@@ -28,5 +29,12 @@ class Board {
         let piecesInBoard = this.board.reduce((z, x) => z.concat(x.filter(col => col != 0)), []);
 
         return squares.reduce((acc, square) => piecesInBoard.filter(piece => collision(square, piece)).length > 0 ? true : acc, false);
+    }
+
+    cleanFilledRows() {
+        // let preBoxesCount = this.countBoxes()
+        this.board.forEach((row, i) => { if (row.every(box => box != 0)) { row.forEach((element, j) => this.board[i][j] = 0) } })
+            // let postBoxesCount = this.countBoxes()
+            // preBoxesCount != postBoxesCount ? points += preBoxesCount - postBoxesCount : points = points
     }
 }

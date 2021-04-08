@@ -21,8 +21,9 @@ function applyGravity() {
     if (!piece.boardCollision(square => square.y === CANVAS_HEIGHT - SQAURE_SIZE) && !board.pieceCollision(piece)) {
         piece.y += SQAURE_SIZE;
     } else {
-        board.lockPiece(piece);
-        generateNewPiece();
+        piece.boardCollision(square => square.y === START_POINT) ? alert('Game Over!') : board.lockPiece(piece);
+        board.cleanFilledRows();
+        generateNewPiece()
     }
 }
 

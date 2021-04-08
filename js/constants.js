@@ -4,6 +4,8 @@ const SQAURE_SIZE = 20;
 const BACKGROUND_COLOR = 50;
 const TIMER = 500;
 const EMPTY_SQAURE = 'WHITE';
+const SCORE_WORTH = 10;
+const START_POINT = 0;
 
 const I = [
     [0, 1, 0, 0],
