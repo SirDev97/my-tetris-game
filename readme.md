@@ -1,1 +1,1 @@
-A simplified tetris game using HTML Canvas.
+A simplified tetris game using HTML Canvas and JavaScript.
