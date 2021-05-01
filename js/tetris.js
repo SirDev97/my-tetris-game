@@ -67,7 +67,7 @@ function Piece(tetromino, color) {
     this.tetrominoN = 0; // we start from the first pattern
     this.activeTetromino = this.tetromino[this.tetrominoN];
 
-    // we need to control the pieces
+    // control the pieces
     this.x = 3;
     this.y = -2;
 }

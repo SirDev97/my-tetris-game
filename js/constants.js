@@ -1,14 +1,3 @@
-// const CANVAS_WIDTH = 200;
-// const CANVAS_HEIGHT = 400;
-// const ROW = 10;
-// const COL = 20;
-// const SQAURE_SIZE = 20;
-// const EMPTY_SQAURE = '#fff';
-// const SCORE_WORTH = 10;
-// const BACKGROUND_COLOR = 50;
-// const TIMER = 500;
-// const START_POINT = 0;
-
 const I = [
     [
         [0, 0, 0, 0],
